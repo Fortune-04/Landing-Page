@@ -50,7 +50,7 @@ const Register = ({setAuth}) => {
             try {
                 const body = { username, email, password };
                 const response = await fetch(
-                "http://localhost:5000/register",
+                "/register",
                 {
                     method: "POST",
                     headers: {
