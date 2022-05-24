@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const db = require('./db'); 
 const cors = require("cors");
+const path = require("path");
+const PORT = process.env.PORT || 5000;
 
 //Registeration and Login
 const bcrypt = require("bcrypt");
@@ -11,6 +13,12 @@ const jwtGenerator = require("./utils/jwtGenerators");
 //Middleware
 app.use(cors());
 app.use(express.json());
+
+if(process.env.NODE_ENV === "production"){
+    //server static content
+    //npm run build
+    app.use(express.static(path.join(__dirname, "client/build")));
+}
 
 //Get all Users
 app.get("/users", async(req, res) => {
@@ -112,6 +120,6 @@ app.post("/register", async(req,res) => {
 
 
 const port = process.env.PORT || 3001;
-app.listen(port, ()=>{
-    console.log(`Server is up and listening on port ${port}`);
+app.listen(PORT, ()=>{
+    console.log(`Server is up and listening on port ${PORT}`);
 });
