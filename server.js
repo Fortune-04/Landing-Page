@@ -106,7 +106,7 @@ app.post("/register", async(req,res) => {
         const bcryptPassword = await bcrypt.hash (password, salt);
 
         //Enter a new user inside the database
-        const newUser = await db.query("INSERT INTO users (name, email, password) values ($1,$2,$3) returning *", 
+        const newUser = await db.query("INSERT INTO users (username, email, password) values ($1,$2,$3) returning *", 
         [username, email, bcryptPassword]);
 
         //Generating jwt token
