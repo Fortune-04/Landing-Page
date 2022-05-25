@@ -43,7 +43,7 @@ const Login = ({setAuth}) => {
       if (parseRes.token) {
         localStorage.setItem("token", parseRes.token);
         // setAuth(true);
-        // navigate('/')
+        navigate('/')
       } else {
         setAuth(false);
       }
