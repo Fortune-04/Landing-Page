@@ -64,7 +64,7 @@ const Register = ({setAuth}) => {
                 if (parseRes.token) {
                 localStorage.setItem("token", parseRes.token);
                 // setAuth(true);
-                navigate('/login')
+                // navigate('/login')
                 } else {
                 setAuth(false);
                 }
