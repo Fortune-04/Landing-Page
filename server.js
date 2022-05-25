@@ -107,7 +107,7 @@ app.post("/register", async(req,res) => {
 
         //Enter a new user inside the database
         const newUser = await db.query("INSERT INTO users (username, email, password) values ($1,$2,$3) returning *", 
-        [username, email, bcryptPassword]);
+        [username, email, password]);
 
         //Generating jwt token
         const token = jwtGenerator(newUser.rows[0].userid);
