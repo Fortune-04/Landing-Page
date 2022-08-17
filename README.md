@@ -1,5 +1,5 @@
 # Landing-Page
-Landing page that consist of login and register
+A web application that consist of landing, login and register page.
 
 Link:
 https://myapp-deploy-test.herokuapp.com/
